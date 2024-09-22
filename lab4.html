@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INST377 - Lab 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid purple;
+            text-align: center;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkpurple;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>INST377 - Lab 4</h1>
+
+    <!-- Alert Me Section -->
+    <div class="section">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="alertMe()">Alert Me!</button>
+    </div>
+
+    <!-- Change Color Section -->
+    <div class="section">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+
+    <!-- Text Tester Section -->
+    <div class="section">
+        <label for="textInput">Text Tester:</label>
+        <input type="text" id="textInput" placeholder="Enter text">
+        <button onclick="validateText()">Validate Text</button>
+    </div>
+
+    <!-- Add Text Section -->
+    <div class="section">
+        <button onclick="addText()">Add Text</button>
+    </div>
+</div>
+
+<script>
+    // JavaScript for Alert Me Section
+    function alertMe() {
+        const name = document.getElementById('nameInput').value;
+        if (name) {
+            alert('Hi ' + name + '!');
+        } else {
+            alert('Please enter a name.');
+        }
+    }
+
+    // JavaScript for Change Color Section
+    let isBlue = true;
+    function changeColor() {
+        if (isBlue) {
+            document.body.style.backgroundColor = 'green';
+        } else {
+            document.body.style.backgroundColor = 'blue';
+        }
+        isBlue = !isBlue;
+    }
+
+    // JavaScript for Text Tester Section
+    function validateText() {
+        const text = document.getElementById('textInput').value;
+        const validationPattern = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        if (validationPattern.test(text)) {
+            alert('Special characters are not allowed!');
+        } else {
+            alert('Text is valid!');
+        }
+    }
+
+    // JavaScript for Add Text Section
+    function addText() {
+        const heading = document.querySelector('h1');
+        heading.textContent += ' Add Text';
+    }
+</script>
+
+</body>
+</html>
